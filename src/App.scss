@@ -1,0 +1,54 @@
+// Import  main sass file
+@import "./sass/main";
+
+// Imports Fonts
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+  font-size: 10px;
+}
+
+body {
+  color: $color-whate;
+}
+
+.App {
+  background-color: $color-main;
+  min-height: 100vh;
+}
+
+.container {
+  width: 1320px;
+  margin: auto;
+}
+
+img {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+
+// scroll bar style
+::-webkit-scrollbar {
+  width: 3px;
+
+  &-track {
+    background: $color-main;
+  }
+  &-thumb {
+    background-color: $color-primary;
+  }
+}

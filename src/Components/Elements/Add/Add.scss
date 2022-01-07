@@ -1,0 +1,19 @@
+@import "../../../sass/main";
+
+.add-service {
+  width: 100%;
+  min-height: 100px;
+  background-color: rgba($color: $color-whate, $alpha: 0.3);
+  margin: 2rem 0;
+  padding: 2rem;
+  border-radius: 0.5rem;
+
+  &-text {
+    height: 4rem;
+    margin-bottom: 3rem;
+  }
+}
+
+.add-form .hide-button {
+  display: none;
+}

@@ -1,0 +1,96 @@
+@import "../../../sass/main";
+
+.single-form {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+
+  & > .input-name,
+  & > input {
+    width: 100%;
+    height: 4rem;
+    border-radius: 4px;
+    margin-right: 2rem;
+    border: 1px solid $color-whate;
+    background-color: transparent;
+    padding: 0 10px;
+    color: $color-whate;
+    font-size: $font-size-default;
+    outline: none;
+
+    &::placeholder {
+      color: $color-whate;
+      font-size: $font-size-default;
+      text-transform: capitalize;
+    }
+  }
+
+  .hide-button {
+    position: absolute;
+    top: -37px;
+    right: -27px;
+    font-size: 20px;
+    width: 2rem;
+    height: 2rem;
+    background: $color-danger;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+}
+
+.multi-form {
+  flex-direction: column !important;
+  gap: 2rem;
+  height: auto;
+  align-items: start;
+}
+
+.input-file {
+  border: none !important;
+}
+
+.service-form-textarea {
+  width: 100% !important;
+  height: 20rem !important;
+  border-radius: 4px;
+  margin-right: 2rem;
+  border: 1px solid $color-whate;
+  background-color: transparent;
+  padding: 10px;
+  color: $color-whate;
+  font-size: $font-size-default;
+  outline: none;
+  &::placeholder {
+    color: $color-whate;
+    font-size: $font-size-default;
+    text-transform: capitalize;
+  }
+}
+
+.skill-label-label {
+  font-size: $font-size-default;
+  margin-bottom: -3rem;
+}
+
+.input-range-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5rem;
+  width: 100%;
+}
+.input-range-value {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+}
+#skill-label {
+  width: 100%;
+}

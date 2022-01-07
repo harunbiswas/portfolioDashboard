@@ -1,0 +1,21 @@
+@import "../../../sass/main";
+
+.errorWrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // text style
+  &-text {
+    color: $color-whate;
+    font-size: $font-size-mid-heading;
+    letter-spacing: 0.41rem;
+
+    & > span {
+      color: $color-primary;
+      font-size: $font-size-heading;
+    }
+  }
+}

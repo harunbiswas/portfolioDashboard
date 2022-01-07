@@ -1,0 +1,22 @@
+@import "../../sass/main";
+
+.counter-block {
+  min-height: 120px;
+  background: rgba($color-whate, 0.1);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  &-icon {
+    font-size: 4rem;
+  }
+
+  &-content > h2 {
+    font-size: $font-size-mid-heading;
+    padding-bottom: 1rem;
+  }
+  &-content > span {
+    font-size: $font-size-default;
+  }
+}

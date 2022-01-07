@@ -1,0 +1,98 @@
+@import "../../sass/main";
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata&display=swap");
+
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 99999999999;
+
+  // top header
+  &-top {
+    width: 100%;
+    background-color: $color-secondary;
+
+    &-wrapper {
+      width: 100%;
+      height: 60px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  // bottom header
+  &-bottom {
+    width: 100%;
+    background-color: $color-whate;
+
+    &-wrapper {
+      width: 100%;
+      height: 70px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}
+.brand > .logo {
+  font-size: $font-size-heading;
+  color: $color-primary;
+  font-family: "Inconsolata", monospace;
+  font-weight: 800;
+}
+
+.profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: relative;
+  right: 2.5rem;
+}
+
+.profile-photo {
+  object-fit: cover;
+  object-position: 50% 50%;
+  position: relative;
+  border-radius: 50%;
+
+  &-title {
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    color: #ffffff;
+    transform: translateY(-50%);
+    width: 300px;
+    text-align: right;
+    padding: 0 10px;
+    font-size: $font-size-default;
+  }
+}
+
+// navbar style
+.header-bottom-navbar-wrapper {
+  display: flex;
+  gap: 4rem;
+  list-style: none;
+}
+.nav-item {
+  &:hover {
+    .nav-link {
+      color: $color-primary;
+    }
+  }
+}
+
+.nav-link {
+  font-size: $font-size-default;
+  color: $color-main;
+  text-transform: capitalize;
+  text-decoration: none;
+  transition: 0.4s;
+}
+.active {
+  color: $color-primary;
+  font-size: $font-size-default;
+}
