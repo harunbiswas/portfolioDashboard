@@ -4,6 +4,7 @@ import Form from "../Form/Form";
 import ReviewFrom from "../Form/ReviewForm";
 import ServiceForm from "../Form/ServiceForm";
 import SkillForm from "../Form/SkillForm";
+import WorkExForm from "../Form/WorkExForm";
 import "./Add.scss";
 
 export default class Add extends Component {
@@ -21,6 +22,8 @@ export default class Add extends Component {
         return <ReviewFrom />;
       case "skill":
         return <SkillForm />;
+      case "workexprience":
+        return <WorkExForm />;
       default:
         return <Form work={this.props.work} />;
     }

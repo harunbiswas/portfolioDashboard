@@ -5,6 +5,7 @@ import Form from "../Form/Form";
 import ReviewFrom from "../Form/ReviewForm";
 import ServiceForm from "../Form/ServiceForm";
 import SkillForm from "../Form/SkillForm";
+import WorkExForm from "../Form/WorkExForm";
 import "./Name.scss";
 
 export default class Name extends Component {
@@ -58,6 +59,8 @@ export default class Name extends Component {
             return <ReviewFrom func={hideFrom} />;
           case "skill":
             return <SkillForm func={hideFrom} />;
+          case "workexprience":
+            return <WorkExForm func={hideFrom} />;
           default:
             return null;
         }

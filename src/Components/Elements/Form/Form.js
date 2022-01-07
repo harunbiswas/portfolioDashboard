@@ -41,49 +41,6 @@ export default class Form extends Component {
       //     </div>
       //   </form>
       //);
-    } else if (this.props.single === "workexprience") {
-      return (
-        <form action="/about" className="service-form multi-form single-form">
-          <input
-            type="text"
-            name="name"
-            className="servise-form-input"
-            placeholder="Name"
-          />
-          <input
-            type="text"
-            name="company"
-            className="servise-form-input"
-            placeholder={
-              this.props.work === "work" ? "Company Name" : "institute Name"
-            }
-          />
-          <input
-            type="text"
-            name="workDuration"
-            className="servise-form-input"
-            placeholder={
-              this.props.work === "work"
-                ? "Work duration"
-                : "Education duration"
-            }
-          />
-          <textarea
-            name="workDetails"
-            id=""
-            className="service-form-textarea"
-            placeholder={
-              this.props.work === "work"
-                ? "Work details here"
-                : "Education Details here..."
-            }
-          ></textarea>
-          <Button name="submit" type="submit" />
-          <div onClick={this.hideFormhandler} className="hide-button">
-            &#9747;
-          </div>
-        </form>
-      );
     } else if (this.props.single === "portfolio") {
       return (
         <>

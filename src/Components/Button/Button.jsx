@@ -7,6 +7,7 @@ import { aboutcontext } from "../context/context";
 const cookies = new Cookies();
 const serveceURL = `${values.BASE_URL}/dashboard/service`;
 const reviewURL = `${values.BASE_URL}/dashboard/review`;
+const skillURL = `${values.BASE_URL}/dashboard/resome/skill`;
 
 export default class Button extends Component {
   state = {
@@ -36,6 +37,9 @@ export default class Button extends Component {
       } else if (this.context.review) {
         URL = reviewURL;
         _id = this.context.review._id;
+      } else if (this.context.skillData) {
+        URL = skillURL;
+        _id = this.context.skillData._id;
       }
 
       axios
