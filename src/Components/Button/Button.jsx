@@ -8,6 +8,7 @@ const cookies = new Cookies();
 const serveceURL = `${values.BASE_URL}/dashboard/service`;
 const reviewURL = `${values.BASE_URL}/dashboard/review`;
 const skillURL = `${values.BASE_URL}/dashboard/resome/skill`;
+const workURL = `${values.BASE_URL}/dashboard/resome/work`;
 
 export default class Button extends Component {
   state = {
@@ -40,6 +41,9 @@ export default class Button extends Component {
       } else if (this.context.skillData) {
         URL = skillURL;
         _id = this.context.skillData._id;
+      } else if (this.context.workData) {
+        URL = workURL;
+        _id = this.context.workData._id;
       }
 
       axios
