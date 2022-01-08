@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Button from "../../Button/Button";
 import AboutForm from "../Form/AboutForm";
 import Form from "../Form/Form";
+import PortfolioForm from "../Form/PortfolioForm";
 import ReviewFrom from "../Form/ReviewForm";
 import ServiceForm from "../Form/ServiceForm";
 import SkillForm from "../Form/SkillForm";
@@ -61,6 +62,8 @@ export default class Name extends Component {
             return <SkillForm func={hideFrom} />;
           case "workexprience":
             return <WorkExForm func={hideFrom} />;
+          case "portfolio":
+            return <PortfolioForm func={hideFrom} />;
           default:
             return null;
         }

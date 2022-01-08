@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Button from "../../Button/Button";
 import Form from "../Form/Form";
+import PortfolioForm from "../Form/PortfolioForm";
 import ReviewFrom from "../Form/ReviewForm";
 import ServiceForm from "../Form/ServiceForm";
 import SkillForm from "../Form/SkillForm";
@@ -26,6 +27,8 @@ export default class Add extends Component {
         return <WorkExForm work="work" />;
       case "education":
         return <WorkExForm />;
+      case "portfolio":
+        return <PortfolioForm />;
       default:
         return <Form work={this.props.work} />;
     }

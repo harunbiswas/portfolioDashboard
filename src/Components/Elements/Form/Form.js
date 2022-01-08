@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Button from "../../Button/Button";
 import { homecontext } from "../../context/context";
 import "./Form.scss";
 
@@ -41,37 +40,6 @@ export default class Form extends Component {
       //     </div>
       //   </form>
       //);
-    } else if (this.props.single === "portfolio") {
-      return (
-        <>
-          <form action="/about" className="single-form multi-form">
-            <input
-              type="text"
-              placeholder={this.props.plac}
-              name="name"
-              className="input-name"
-            />
-            <input
-              type="text"
-              placeholder="title here"
-              name="title"
-              className="input-name"
-            />
-            <input
-              type="text"
-              placeholder="Link"
-              name="link"
-              className="input-name"
-            />
-            <input type="file" name="file" className="input-file" />
-
-            <Button name="submit" type="submit" />
-            <div onClick={this.hideFormhandler} className="hide-button">
-              &#9747;
-            </div>
-          </form>
-        </>
-      );
     }
   };
 
