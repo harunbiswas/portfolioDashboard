@@ -23,6 +23,8 @@ export default class Add extends Component {
       case "skill":
         return <SkillForm />;
       case "workexprience":
+        return <WorkExForm work="work" />;
+      case "education":
         return <WorkExForm />;
       default:
         return <Form work={this.props.work} />;

@@ -6,7 +6,9 @@ import Button from "../../Button/Button";
 import { aboutcontext } from "../../context/context";
 
 const cookies = new Cookies();
-const URL = `${values.BASE_URL}/dashboard/resome/work`;
+const workURL = `${values.BASE_URL}/dashboard/resome/work`;
+const educationURL = `${values.BASE_URL}/dashboard/resome/education`;
+let URL;
 
 export default class WorkExForm extends Component {
   state = {
@@ -16,31 +18,55 @@ export default class WorkExForm extends Component {
     deuration: "",
     description: "",
     id: "",
+    isWork: false,
+    isUpdate: false,
   };
   componentDidMount() {
     if (this.context) {
-      const { name, institute, deuration, description, _id } =
-        this.context.workData;
+      const { name, institute, company, deuration, description, _id } =
+        this.context.workData || this.context.edecutionData;
+      if (this.context.workData) {
+        this.setState({ isWork: true });
+      } else {
+        this.setState({ isWork: false });
+      }
       this.setState({
         name,
         institute,
         deuration,
+        company,
         description,
         id: _id,
+        isUpdate: true,
       });
     }
   }
 
   submitHandler = (e) => {
     e.preventDefault();
-    const { name, institute, deuration, description, id, cookie } = this.state;
+    const {
+      name,
+      institute,
+      company,
+      deuration,
+      description,
+      id,
+      cookie,
+      isUpdate,
+    } = this.state;
     const data = {
       name,
       institute,
       deuration,
+      company,
       description,
       id,
     };
+    if (isUpdate) {
+      URL = company ? workURL : educationURL;
+    } else {
+      URL = this.props.work ? workURL : educationURL;
+    }
     if (this.context) {
       axios
         .put(URL, data, {
@@ -49,7 +75,7 @@ export default class WorkExForm extends Component {
           },
         })
         .then((d) => {
-          alert("Work exprience Updated successfully!");
+          alert("Updated successfully!");
           window.location.reload();
         })
         .catch((e) => {
@@ -82,6 +108,9 @@ export default class WorkExForm extends Component {
       case "institute":
         this.setState({ institute: e.target.value });
         break;
+      case "company":
+        this.setState({ company: e.target.value });
+        break;
       case "deuration":
         this.setState({ deuration: e.target.value });
         break;
@@ -93,7 +122,8 @@ export default class WorkExForm extends Component {
     }
   };
   render() {
-    const { name, institute, deuration, description } = this.state;
+    const { name, institute, company, deuration, description, isWork } =
+      this.state;
     return (
       <form
         onSubmit={(e) => this.submitHandler(e)}
@@ -110,12 +140,18 @@ export default class WorkExForm extends Component {
         />
         <input
           type="text"
-          name="institute"
+          name={
+            isWork || this.props.work === "work" || company
+              ? "company"
+              : "institute"
+          }
           className="servise-form-input"
-          value={institute}
+          value={company || institute}
           onChange={(e) => this.inputChangeHandler(e)}
           placeholder={
-            this.props.work === "work" ? "Company Name" : "institute Name"
+            isWork || this.props.work === "work" || company
+              ? "Company Name"
+              : "Institute Name"
           }
         />
         <input
@@ -125,7 +161,9 @@ export default class WorkExForm extends Component {
           value={deuration}
           onChange={(e) => this.inputChangeHandler(e)}
           placeholder={
-            this.props.work === "work" ? "Work duration" : "Education duration"
+            this.props.work === "work" || company
+              ? "Work duration"
+              : "Education duration"
           }
         />
         <textarea
@@ -135,7 +173,7 @@ export default class WorkExForm extends Component {
           id=""
           className="service-form-textarea"
           placeholder={
-            this.props.work === "work"
+            this.props.work === "work" || company
               ? "Work details here"
               : "Education Details here..."
           }

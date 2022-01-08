@@ -11,11 +11,13 @@ import "./Resome.scss";
 const cookies = new Cookies();
 const skillURL = `${values.BASE_URL}/dashboard/resome/skill`;
 const workURL = `${values.BASE_URL}/dashboard/resome/work`;
+const educationURL = `${values.BASE_URL}/dashboard/resome/education`;
 export default class Resome extends Component {
   state = {
     cookie: cookies.get(values.COOKIE_NAME),
     skillDatas: [],
     workDatas: [],
+    educationDatas: [],
   };
 
   componentDidMount() {
@@ -44,10 +46,20 @@ export default class Resome extends Component {
       .catch((e) => {
         alert(e.response.data.error);
       });
+
+    // get education expricence data
+    axios
+      .get(educationURL, { headers: { cookies: cookie } })
+      .then((d) => {
+        this.setState({ educationDatas: d.data.result });
+      })
+      .catch((e) => {
+        alert(e.response.data.error);
+      });
   }
 
   render() {
-    const { skillDatas, workDatas } = this.state;
+    const { skillDatas, workDatas, educationDatas } = this.state;
     return (
       <div className="resome">
         <div className="container">
@@ -74,12 +86,20 @@ export default class Resome extends Component {
           ))}
           {/* // Educational Qualifications  */}
           <Title name="Educational Qualifications" />
-          <Add name="Add Review" single="workexprience" />
-          <Name
-            useDelete="yse"
-            name="MSc in Computer science & Tecnology"
-            single="workexprience"
-          />
+          <Add name="Add Review" single="education" />
+
+          {educationDatas.reverse().map((edecutionData) => (
+            <aboutcontext.Provider
+              key={edecutionData._id}
+              value={{ edecutionData }}
+            >
+              <Name
+                useDelete="yse"
+                name={edecutionData.name}
+                single="workexprience"
+              />
+            </aboutcontext.Provider>
+          ))}
         </div>
       </div>
     );

@@ -9,6 +9,7 @@ const serveceURL = `${values.BASE_URL}/dashboard/service`;
 const reviewURL = `${values.BASE_URL}/dashboard/review`;
 const skillURL = `${values.BASE_URL}/dashboard/resome/skill`;
 const workURL = `${values.BASE_URL}/dashboard/resome/work`;
+const educationURL = `${values.BASE_URL}/dashboard/resome/education`;
 
 export default class Button extends Component {
   state = {
@@ -44,6 +45,9 @@ export default class Button extends Component {
       } else if (this.context.workData) {
         URL = workURL;
         _id = this.context.workData._id;
+      } else if (this.context.edecutionData) {
+        URL = educationURL;
+        _id = this.context.edecutionData._id;
       }
 
       axios
